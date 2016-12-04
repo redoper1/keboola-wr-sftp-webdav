@@ -1,0 +1,67 @@
+{
+  "title": "Parameters",
+  "type": "object",
+  "required": [
+    "hostname",
+    "username",
+    "#password",
+    "protocol",
+    "remote_path",
+    "append_datetime",
+    "trust_unsecure_certificate"
+  ],
+  "properties": {
+    "hostname": {
+      "title": "Hostname",
+      "type": "string",
+      "minLength": 1,
+      "default": ""
+    },
+    "username": {
+      "title": "Username",
+      "type": "string",
+      "minLength": 1,
+      "default": ""
+    },
+    "#password": {
+      "title": "Password",
+      "type": "string",
+      "format": "password",
+      "minLength": 1,
+      "default": ""
+    },
+    "protocol": {
+      "title": "Protocol",
+      "type": "string",
+      "enum": [
+        "sftp",
+        "webdav"
+      ],
+      "default": "sftp"
+    },
+    "remote_path": {
+      "title": "Remote path",
+      "type": "string",
+      "minLength": 1,
+      "default": "/"
+    },
+    "append_datetime": {
+      "title": "Append datetime",
+      "type": "boolean",
+      "enum": [
+        false,
+        true
+      ],
+      "default": false
+    },
+    "trust_unsecure_certificate": {
+      "title": "Trust unsecured certificate",
+      "type": "boolean",
+      "enum": [
+        false,
+        true
+      ],
+      "default": true
+    }
+  }
+}
