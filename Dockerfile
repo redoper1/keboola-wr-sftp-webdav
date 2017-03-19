@@ -5,4 +5,4 @@ WORKDIR /home
 
 RUN git clone https://github.com/radektomasek/keboola-wr-sftp-webdav ./ && npm install
 
-ENTRYPOINT node ./src/index.js --data=/data
+ENTRYPOINT node_modules/.bin/babel-node --presets es2015,stage-0 ./src/index.js --data=/data

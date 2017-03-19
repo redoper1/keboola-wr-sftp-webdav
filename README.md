@@ -24,7 +24,8 @@ The configuration structure for the SFTP/WebDAV Writer is very straightforward a
 
 ### The default options
 
-The required parameters are **Hostname**, **Username** and **Password**. There must be a non-empty value for each of these parameter in the input configuration. If not, the execution will failed.
+The required parameters are **Hostname**, **Username** and **Password**. There must be a non-empty value for each of these parameter in the input configuration. If not, the execution will failed. **Note**: hostname parameter should contain a port, in the form **domain:port**.
+If you omit the port, a default ones for sftp/webdav are going to be applied.
 
 The output may contain a datetime value (format: YYYY-MM-DD_HH:mm:ss). If there is an attribute **Append datetime** in cofiguration and contains **true** value, the output file(s) will contain that information.
 

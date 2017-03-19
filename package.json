@@ -1,6 +1,6 @@
 {
   "name": "keboola-wr-sftp-webdav",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A SFTP/WebDAV Keboola Writer",
   "main": "index.js",
   "scripts": {},
@@ -15,14 +15,21 @@
   },
   "homepage": "https://github.com/radektomasek/keboola-wr-sftp-webdav#readme",
   "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "bluebird": "^3.5.0",
     "commander": "^2.9.0",
-    "curlrequest": "^0.5.4",
-    "is-there": "^4.3.0",
-    "lodash": "^3.10.1",
-    "moment": "^2.10.6",
-    "nconf": "^0.8.2",
-    "q": "^1.4.1",
-    "sftpjs": "^1.3.2",
-    "xml2js": "^0.4.15"
+    "curlrequest": "^1.0.1",
+    "is-there": "^4.4.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.0",
+    "nconf": "^0.8.4",
+    "ssh2-sftp-client": "^1.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0"
   }
 }
