@@ -59,7 +59,13 @@ export function parseConfiguration(configObject, dataDirectory) {
       ? configObject.get('parameters:append_datetime')
       : constants.DEFAULT_DATETIME_APPEND
 
-    const dateTimeSuffix = moment().format(constants.DEFAULT_DATE_FORMAT)
+    const gzip = !_.isUndefined(configObject.get('parameters:gzip'))
+      ? configObject.get('parameters:gzip')
+      : false
+
+    const datetimeFormat = configObject.get('parameters:datetime_format') || constants.DEFAULT_DATE_FORMAT
+
+    const dateTimeSuffix = moment().format(datetimeFormat)
 
     const tableExportDirectory = path.join(dataDirectory, 'in', 'tables')
 
@@ -72,6 +78,7 @@ export function parseConfiguration(configObject, dataDirectory) {
     resolve({
       host,
       port,
+      gzip,
       files,
       username,
       password,

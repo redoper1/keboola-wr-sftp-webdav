@@ -2,12 +2,14 @@
   "title": "Parameters",
   "type": "object",
   "required": [
+    "gzip",
     "hostname",
     "username",
     "#password",
     "protocol",
     "remote_path",
     "append_datetime",
+    "datetime_format",
     "trust_unsecure_certificate"
   ],
   "properties": {
@@ -47,6 +49,15 @@
     },
     "append_datetime": {
       "title": "Append datetime",
+      "type": "boolean",
+      "enum": [
+        false,
+        true
+      ],
+      "default": false
+    },
+    "gzip": {
+      "title": "Gzip Compression (sftp only)",
       "type": "boolean",
       "enum": [
         false,

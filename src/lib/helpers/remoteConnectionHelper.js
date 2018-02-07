@@ -1,12 +1,13 @@
 import fs from 'fs'
+import zlib from 'zlib'
 import Promise from 'bluebird'
 /**
  * This function generates an array of file uploads to SFTP.
  */
-export function uploadFilesToSftp(sftp, files = []) {
+export function uploadFilesToSftp(sftp, files = [], gzip = false) {
   return Promise.each(files, file => {
-    console.log(`[SFTP]: Uploading ${file.name} to ${file.destination}`)
-    return uploadFileToSftp(sftp, file)
+    console.log(`[SFTP]: Uploading ${file.name} to ${file.destination}${gzip ? '.gz' : ''}`)
+    return uploadFileToSftp(sftp, file, gzip)
   })
 }
 
@@ -27,8 +28,12 @@ export function uploadFilesToWebDAV(curl, files = [], options, host, port) {
 /**
  * This function triggers the actual upload to SFTP.
  */
-export function uploadFileToSftp(sftp, { source, destination }) {
-  return sftp.put(fs.createReadStream(source), destination)
+export function uploadFileToSftp(sftp, { source, destination }, gzip) {
+  if (!gzip) {
+    return sftp.put(fs.createReadStream(source), `${destination}`)  
+  } else {
+    return sftp.put(fs.createReadStream(source).pipe(zlib.createGzip()), `${destination}.gz`)
+  }  
 }
 
 /**

@@ -17,17 +17,21 @@ The configuration structure for the SFTP/WebDAV Writer is very straightforward a
 * Hostname - SFTP or WebDAV hostname.
 * Username - SFTP or WebDAV username.
 * Password - SFTP or WebDAV password, will be encrypted.
-* Protocol - sftp/webdav. Default value set to sftp.
-* Remote path - any remote path where the files will be uploaded. Default value set to '/'.
-* Append datetime - true/false. Default value set to false.
-* Trust unsecured certificate - true/false. Default value set to true.
+* Protocol - sftp/webdav. Default value is set to sftp.
+* Gzip - (sftp only). Boolean value which specifies whether the output is going to be compressed or not. Default value is set to false. 
+* Remote path - any remote path where the files will be uploaded. Default value is set to '/'.
+* Append datetime - true/false. Default value is set to false.
+* Datetime format - you can customize the datetime format. The default value is YYYY-MM-DD_HH:mm:ss.
+* Trust unsecured certificate - true/false. Default value is set to true.
 
 ### The default options
 
 The required parameters are **Hostname**, **Username** and **Password**. There must be a non-empty value for each of these parameter in the input configuration. If not, the execution will failed. **Note**: hostname parameter should contain a port, in the form **domain:port**.
 If you omit the port, a default ones for sftp/webdav are going to be applied.
 
-The output may contain a datetime value (format: YYYY-MM-DD_HH:mm:ss). If there is an attribute **Append datetime** in cofiguration and contains **true** value, the output file(s) will contain that information.
+The output may contain a datetime value (default format is: YYYY-MM-DD_HH:mm:ss, but you can customize it). If there is an attribute **Append datetime** in cofiguration and contains **true** value, the output file(s) will contain that information.
+
+You can also compress the output with **gzip**. This option is currently available only for sftp. The default value is set to false.
 
 Another attribute is called **Protocol**. The default value is **sftp**, which is used if this attribute is missing in configuration. The other option is **webdav** as described above.
 

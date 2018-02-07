@@ -17,6 +17,7 @@ import * as remoteConnectionHelper from './lib/helpers/remoteConnectionHelper'
     const {
       host,
       port,
+      gzip,
       files,
       retries,
       timeout,
@@ -29,7 +30,7 @@ import * as remoteConnectionHelper from './lib/helpers/remoteConnectionHelper'
     if (protocol === constants.SFTP_PROTOCOL) {
       const sftp = new SftpClient()
       await sftp.connect({ host, port, username, password })
-      await remoteConnectionHelper.uploadFilesToSftp(sftp, files)
+      await remoteConnectionHelper.uploadFilesToSftp(sftp, files, gzip)
       sftp.end()
     } else if (protocol === constants.WEBDAV_PROTOCOL) {
       const options = { user: `${username}:${password}`, insecure: trustUnsecureCertificate, retries, timeout }
