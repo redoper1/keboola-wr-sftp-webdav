@@ -54,6 +54,12 @@
       ],
       "default": false
     },
+    "datetime_format": {
+      "title": "Datetime format",
+      "type": "string",
+      "minLength": 1,
+      "default": "YYYY-MM-DD_HH:mm:ss"
+    },
     "trust_unsecure_certificate": {
       "title": "Trust unsecured certificate",
       "type": "boolean",
