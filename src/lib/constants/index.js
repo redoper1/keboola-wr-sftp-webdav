@@ -1,17 +1,35 @@
 // A file that contains constants of the applications
-export const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD_HH:mm:ss'
-export const DEFAULT_OUTPUT_DIR = '/'
-export const DEFAULT_DATA_DIR = '/data'
-export const CONFIG_FILE = 'config.json'
-export const SFTP_PROTOCOL = 'sftp'
-export const WEBDAV_PROTOCOL = 'webdav'
-export const DEFAULT_SFTP_PORT = 22
-export const DEFAULT_WEBDAV_PORT = 443
-export const DEFAULT_RETRIES = 3
-export const DEFAULT_TIMEOUT = 300
-export const DEFAULT_PROTOCOL = SFTP_PROTOCOL
-export const DEFAULT_DATETIME_APPEND = false
-export const DEFAULT_CERTIFICATE_TRUST = true
+const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD_HH:mm:ss';
+const DEFAULT_OUTPUT_DIR = '/';
+const DEFAULT_DATA_DIR = '/data';
+const CONFIG_FILE = 'config.json';
+const SFTP_PROTOCOL = 'sftp';
+const WEBDAV_PROTOCOL = 'webdav';
+const DEFAULT_SFTP_PORT = 22;
+const DEFAULT_WEBDAV_PORT = 443;
+const DEFAULT_RETRIES = 3;
+const DEFAULT_TIMEOUT = 300;
+const DEFAULT_PROTOCOL = SFTP_PROTOCOL;
+const DEFAULT_DATETIME_APPEND = false;
+const DEFAULT_CERTIFICATE_TRUST = true;
 
 // Error messages
-export const ERROR_UNKNOWN_PROTOCOL = 'Invalid protocol specified! Only sftp or webdav are allowed'
+const ERROR_UNKNOWN_PROTOCOL =
+  'Invalid protocol specified! Only SFTP or WebDAV are allowed';
+
+module.exports = {
+  DEFAULT_DATE_FORMAT,
+  DEFAULT_OUTPUT_DIR,
+  DEFAULT_DATA_DIR,
+  CONFIG_FILE,
+  SFTP_PROTOCOL,
+  WEBDAV_PROTOCOL,
+  DEFAULT_SFTP_PORT,
+  DEFAULT_WEBDAV_PORT,
+  DEFAULT_RETRIES,
+  DEFAULT_TIMEOUT,
+  DEFAULT_PROTOCOL,
+  DEFAULT_DATETIME_APPEND,
+  DEFAULT_CERTIFICATE_TRUST,
+  ERROR_UNKNOWN_PROTOCOL
+};

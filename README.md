@@ -14,15 +14,15 @@ A Keboola helper for Table Input Mapping selection is enabled. It's a GUI compon
 
 The configuration structure for the SFTP/WebDAV Writer is very straightforward and there is a GUI helper that helps you to prepare the configuration. Check out the summary in the list below.
 
-* Hostname - SFTP or WebDAV hostname.
-* Username - SFTP or WebDAV username.
-* Password - SFTP or WebDAV password, will be encrypted.
-* Protocol - sftp/webdav. Default value is set to sftp.
-* Gzip - (sftp only). Boolean value which specifies whether the output is going to be compressed or not. Default value is set to false. 
-* Remote path - any remote path where the files will be uploaded. Default value is set to '/'.
-* Append datetime - true/false. Default value is set to false.
-* Datetime format - you can customize the datetime format. The default value is YYYY-MM-DD_HH:mm:ss.
-* Trust unsecured certificate - true/false. Default value is set to true.
+- Hostname - SFTP or WebDAV hostname.
+- Username - SFTP or WebDAV username.
+- Password - SFTP or WebDAV password, will be encrypted.
+- Protocol - sftp/webdav. Default value is set to sftp.
+- Gzip - (sftp only). Boolean value which specifies whether the output is going to be compressed or not. Default value is set to false.
+- Remote path - any remote path where the files will be uploaded. Default value is set to '/'.
+- Append datetime - true/false. Default value is set to false.
+- Datetime format - you can customize the datetime format. The default value is YYYY-MM-DD_HH:mm:ss.
+- Trust unsecured certificate - true/false. Default value is set to true.
 
 ### The default options
 
@@ -36,3 +36,5 @@ You can also compress the output with **gzip**. This option is currently availab
 Another attribute is called **Protocol**. The default value is **sftp**, which is used if this attribute is missing in configuration. The other option is **webdav** as described above.
 
 The last option is related to WebDAV configuration and certificate trust verification. If there is a situation when your WebDAV server contains a certificate that is not properly secured and fails on cetificate trust verification (error: Peer certificate cannot be authenticated with known CA certificates), you won't be able to load any file by default. However, you can skip that checking by keeping parameter **Trust unsecured certificate** set to true.
+
+You can also select files from your KBC storage. This features works for the SFTP only at the moment.
