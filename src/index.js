@@ -49,7 +49,12 @@ async function main() {
           '[INFO]: Storage files found in the input directory, going to upload them into the remote directory'
         );
 
-        await remoteConnectionHelper.uploadFilesToSftp(sftp, files, gzip, true);
+        await remoteConnectionHelper.uploadFilesToSftp(
+          sftp,
+          storageFiles,
+          gzip,
+          true
+        );
       }
       sftp.end();
     } else if (protocol === constants.WEBDAV_PROTOCOL) {
@@ -69,7 +74,7 @@ async function main() {
     } else {
       throw constants.ERROR_UNKNOWN_PROTOCOL;
     }
-    console.log(`${_.size(files)} file(s) uploaded successfully!`);
+    console.log(`Upload process completed`);
     process.exit(0);
   } catch (error) {
     console.error(error);

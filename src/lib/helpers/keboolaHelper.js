@@ -28,8 +28,9 @@ function getConfig(configPath) {
  */
 function parseConfiguration(configObject, dataDirectory) {
   return new Promise((resolve, reject) => {
-    const inputFiles = configObject.get('storage:input:tables');
-    if (_.isUndefined(inputFiles) || _.isEmpty(inputFiles)) {
+    const inputFiles = configObject.get('storage:input:tables') || [];
+    const inputStorageFiles = configObject.get('storage:input:files') || [];
+    if (_.isEmpty([...inputFiles, ...inputStorageFiles])) {
       reject('No KBC Bucket/Table/File selected!');
     }
     const username = configObject.get('parameters:username');
