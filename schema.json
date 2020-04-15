@@ -79,6 +79,48 @@
         true
       ],
       "default": true
+    },
+    "ssh_private_key": {
+      "title": "SSH private key",
+      "type": "object",
+      "required": [
+        "enabled",
+        "input_type",
+        "#key"
+      ],
+      "properties": {
+        "enabled": {
+          "title": "Enable connection with private SSH key",
+          "type": "boolean",
+          "enum": [
+            false,
+            true
+          ],
+          "default": false
+        },
+        "input_type": {
+          "title": "Enter type of SSH key input (key string / path to key file)",
+          "type": "string",
+          "enum": [
+            "path",
+            "string"
+          ],
+          "default": "string"
+        },
+        "#key": {
+          "title": "Private SSH key",
+          "type": "string",
+          "format": "password",
+          "minLength": 1,
+          "default": "PRIVATE_SSH_KEY"
+        },
+        "#passphrase": {
+          "title": "Private SSH key passphrase",
+          "type": "string",
+          "format": "password",
+          "default": ""
+        }
+      }
     }
   }
 }

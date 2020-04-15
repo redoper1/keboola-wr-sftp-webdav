@@ -97,6 +97,14 @@ function parseConfiguration(configObject, dataDirectory) {
       ? configObject.get('parameters:trust_unsecure_certificate')
       : constants.DEFAULT_CERTIFICATE_TRUST;
 
+    const sshPrivateKey = !_.isUndefined(configObject.get('parameters:gzip'))
+      ? configObject.get('parameters:ssh_private_key')
+      : {
+        "enabled": false,
+        "input_type": "string",
+        "#key": "",
+        "#passphrase": ""
+      };
     resolve({
       host,
       port,
@@ -111,7 +119,8 @@ function parseConfiguration(configObject, dataDirectory) {
       dateTimeSuffix,
       trustUnsecureCertificate,
       retries: constants.DEFAULT_RETRIES,
-      timeout: constants.DEFAULT_TIMEOUT
+      timeout: constants.DEFAULT_TIMEOUT,
+      sshPrivateKey
     });
   });
 }
