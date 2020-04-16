@@ -23,6 +23,13 @@ The configuration structure for the SFTP/WebDAV Writer is very straightforward a
 - Append datetime - true/false. Default value is set to false.
 - Datetime format - you can customize the datetime format. The default value is YYYY-MM-DD_HH:mm:ss.
 - Trust unsecured certificate - true/false. Default value is set to true.
+- SSH private key *section*
+  - Enable connection using private SSH key - true/false. Default value is set to false.
+  - Enter type of SSH key input - string/path. Default value is set to string.
+  - Private SSH key - Private SSH key input according to selected type of input, will be encrypted.
+
+    In case of string paste the content of the file as single line string with '\\n' at the end of each original line.
+  - Private SSH key passphrase - passphrase for private SSH key if is set, will be encrypted.
 
 ### The default options
 

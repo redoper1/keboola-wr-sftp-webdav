@@ -100,7 +100,7 @@
       ],
       "properties": {
         "enabled": {
-          "title": "Enable connection with private SSH key",
+          "title": "Enable connection using private SSH key",
           "type": "boolean",
           "enum": [
             false,
@@ -126,7 +126,7 @@
           "minLength": 1,
           "default": "PRIVATE_SSH_KEY",
           "propertyOrder": 3,
-          "description": "Provide private SSH key in form corresponding to selected type of input.\nIn case of sting paste the content of the file as single line string with '\\n' at the end of each original line."
+          "description": "Provide private SSH key in form corresponding to selected type of input.\nIn case of string paste the content of the file as single line string with '\\n' at the end of each original line."
         },
         "#passphrase": {
           "title": "Private SSH key passphrase",
@@ -134,7 +134,7 @@
           "format": "password",
           "default": "",
           "propertyOrder": 4,
-          "description": "Provide passphrase for private SSH key if needed"
+          "description": "Provide passphrase for private SSH key if needed."
         }
       }
     }
