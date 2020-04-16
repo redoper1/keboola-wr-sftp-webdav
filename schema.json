@@ -17,20 +17,23 @@
       "title": "Hostname",
       "type": "string",
       "minLength": 1,
-      "default": ""
+      "default": "",
+      "propertyOrder": 1
     },
     "username": {
       "title": "Username",
       "type": "string",
       "minLength": 1,
-      "default": ""
+      "default": "",
+      "propertyOrder": 2
     },
     "#password": {
       "title": "Password",
       "type": "string",
       "format": "password",
       "minLength": 1,
-      "default": ""
+      "default": "",
+      "propertyOrder": 3
     },
     "protocol": {
       "title": "Protocol",
@@ -39,13 +42,15 @@
         "sftp",
         "webdav"
       ],
-      "default": "sftp"
+      "default": "sftp",
+      "propertyOrder": 4
     },
     "remote_path": {
       "title": "Remote path",
       "type": "string",
       "minLength": 1,
-      "default": "/"
+      "default": "/",
+      "propertyOrder": 5
     },
     "append_datetime": {
       "title": "Append datetime",
@@ -54,7 +59,8 @@
         false,
         true
       ],
-      "default": false
+      "default": false,
+      "propertyOrder": 6
     },
     "gzip": {
       "title": "Gzip Compression (sftp only)",
@@ -63,13 +69,15 @@
         false,
         true
       ],
-      "default": false
+      "default": false,
+      "propertyOrder": 7
     },
     "datetime_format": {
       "title": "Datetime format",
       "type": "string",
       "minLength": 1,
-      "default": "YYYY-MM-DD_HH:mm:ss"
+      "default": "YYYY-MM-DD_HH:mm:ss",
+      "propertyOrder": 8
     },
     "trust_unsecure_certificate": {
       "title": "Trust unsecured certificate",
@@ -78,11 +86,13 @@
         false,
         true
       ],
-      "default": true
+      "default": true,
+      "propertyOrder": 9
     },
     "ssh_private_key": {
       "title": "SSH private key",
       "type": "object",
+      "propertyOrder": 10,
       "required": [
         "enabled",
         "input_type",
@@ -96,7 +106,8 @@
             false,
             true
           ],
-          "default": false
+          "default": false,
+          "propertyOrder": 1
         },
         "input_type": {
           "title": "Enter type of SSH key input (key string / path to key file)",
@@ -105,20 +116,25 @@
             "path",
             "string"
           ],
-          "default": "string"
+          "default": "string",
+          "propertyOrder": 2
         },
         "#key": {
           "title": "Private SSH key",
           "type": "string",
           "format": "password",
           "minLength": 1,
-          "default": "PRIVATE_SSH_KEY"
+          "default": "PRIVATE_SSH_KEY",
+          "propertyOrder": 3,
+          "description": "Provide private SSH key in form corresponding to selected type of input.\nIn case of sting paste the content of the file as single line string with '\\n' at the end of each original line."
         },
         "#passphrase": {
           "title": "Private SSH key passphrase",
           "type": "string",
           "format": "password",
-          "default": ""
+          "default": "",
+          "propertyOrder": 4,
+          "description": "Provide passphrase for private SSH key if needed"
         }
       }
     }
