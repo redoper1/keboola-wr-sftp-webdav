@@ -56,14 +56,9 @@ async function main() {
           }
         }
         if (privateKey == null || privateKey == '' || privateKey == 'PRIVATE_SSH_KEY') {
-          console.error(`[SFTP]: It looks like the private SSH key was not loaded properly.\n${privateKey}`);
+          console.error(`[SFTP]: It looks like the private SSH key was not loaded properly.`);
           process.exit(1);
         }
-        console.info(`sshPrivateKey['#key']:\n${sshPrivateKey['#key']}\n\n${privateKey}`);
-        console.error(`sshPrivateKey['#key']:\n${sshPrivateKey['#key']}\n\n${privateKey}`);
-        console.info(`sshPrivateKey:\n${sshPrivateKey}`);
-        console.error(`sshPrivateKey:\n${sshPrivateKey}`);
-        process.exit(0);
         if (sshPrivateKey['#passphrase'] !== '') {
           passphrase = sshPrivateKey['#passphrase'];
           await sftp.connect({ host, port, username, privateKey, passphrase });
