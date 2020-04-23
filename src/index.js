@@ -55,7 +55,6 @@ async function main() {
             privateKey = fs.readFileSync(sshPrivateKey['#key'], {'encoding':'utf8'});
           }
         }
-        console.info(`[SFTP INFO]: Private key info:\nObject type: ${typeof(privateKey)}\nLength: ${privateKey.length}`);
         if (privateKey == null || privateKey == '' || privateKey == 'PRIVATE_SSH_KEY') {
           console.error(`[SFTP]: It looks like the private SSH key was not loaded properly.`);
           process.exit(1);
