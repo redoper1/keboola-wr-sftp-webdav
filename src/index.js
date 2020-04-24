@@ -44,15 +44,16 @@ async function main() {
       if (sshPrivateKey.enabled == true) { // Use user private SSH key based authentification
         var privateKey = null;
         var passphrase = null;
+        var tempPrivateKey = typeof(sshPrivateKey['#key']) !== 'undefined' ? sshPrivateKey['#key'] : (typeof (sshPrivateKey.key) !== 'undefined' ? sshPrivateKey.key : null);
         if (sshPrivateKey.input_type == "string") {
-          privateKey = sshPrivateKey['#key'];
+          privateKey = tempPrivateKey;
         } else if (sshPrivateKey.input_type == "path") {
-          if (!sshPrivateKey['#key'].startsWith('http')) {
-            //privateKey = fs.readFileSync(path.join(sshPrivateKey['#key'], ''));
-            privateKey = fs.readFileSync(path.join(sshPrivateKey['#key'], ''), {'encoding':'utf8'});
+          if (!tempPrivateKey.startsWith('http')) {
+            //privateKey = fs.readFileSync(path.join(tempPrivateKey, ''));
+            privateKey = fs.readFileSync(path.join(tempPrivateKey, ''), {'encoding':'utf8'});
           } else {
-            //privateKey = fs.readFileSync(sshPrivateKey['#key']);
-            privateKey = fs.readFileSync(sshPrivateKey['#key'], {'encoding':'utf8'});
+            //privateKey = fs.readFileSync(tempPrivateKey);
+            privateKey = fs.readFileSync(tempPrivateKey, {'encoding':'utf8'});
           }
         }
         if (privateKey == null || privateKey == '' || privateKey == 'PRIVATE_SSH_KEY') {
