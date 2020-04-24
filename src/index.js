@@ -45,6 +45,9 @@ async function main() {
         var privateKey = null;
         var passphrase = null;
         var tempPrivateKey = typeof(sshPrivateKey['#key']) !== 'undefined' ? sshPrivateKey['#key'] : (typeof (sshPrivateKey.key) !== 'undefined' ? sshPrivateKey.key : null);
+        if (tempPrivateKey !== null) {
+          tempPrivateKey = tempPrivateKey.replace('\\s', ' ');
+        }
         if (sshPrivateKey.input_type == "string") {
           privateKey = tempPrivateKey;
         } else if (sshPrivateKey.input_type == "path") {
