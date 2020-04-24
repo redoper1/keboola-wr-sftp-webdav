@@ -44,7 +44,14 @@ async function main() {
       if (sshPrivateKey.enabled == true) { // Use user private SSH key based authentification
         var privateKey = null;
         var passphrase = null;
-        var tempPrivateKey = typeof(sshPrivateKey['#key']) !== 'undefined' ? sshPrivateKey['#key'] : (typeof (sshPrivateKey.key) !== 'undefined' ? sshPrivateKey.key : null);
+        var tempPrivateKey = typeof(sshPrivateKey['#key']) !== 'undefined' && sshPrivateKey['#key'] !== '' ? sshPrivateKey['#key'] : (typeof (sshPrivateKey.key) !== 'undefined' && sshPrivateKey.key !== '' ? sshPrivateKey.key : null);
+        var privateKeyTest = '';
+        var i;
+        for (i = 0; i < tempPrivateKey.length - 1; i++) {
+          privateKeyTest += tempPrivateKey[i];
+        }
+        privateKeyTest += tempPrivateKey[tempPrivateKey.length - 1];
+        console.info(`[Private key debug]\ntempPrivateKey:\n${tempPrivateKey}\ntempPrivateKey length: ${tempPrivateKey.length}\ntype of tempPrivateKey: ${typeof (tempPrivateKey)}\ntempPrivateKey first char: ${tempPrivateKey[0]}\ntempPrivateKey test:\n${privateKeyTest}`);
         if (sshPrivateKey.input_type == "string") {
           privateKey = tempPrivateKey;
         } else if (sshPrivateKey.input_type == "path") {
