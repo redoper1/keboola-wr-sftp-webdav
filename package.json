@@ -22,7 +22,7 @@
     "is-there": "^4.5.0",
     "lodash": ">=4.17.19",
     "moment": "^2.27.0",
-    "nconf": "^0.8.4",
+    "nconf": "^0.10.0",
     "ssh2-sftp-client": "^1.0.5"
   },
   "devDependencies": {}
