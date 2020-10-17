@@ -19,7 +19,7 @@
     "bluebird": "^3.7.2",
     "commander": "^2.20.3",
     "curlrequest": "^1.0.1",
-    "is-there": "^4.5.0",
+    "is-there": "^4.5.1",
     "lodash": ">=4.17.19",
     "moment": "^2.27.0",
     "nconf": "^0.8.4",
